@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Wikipedia Add Class Icon",
+  "version": "1.0",
+  "description": "Displays the grade of a Wikipedia article.",
+  "content_scripts": [
+    {
+      "matches": ["https://en.wikipedia.org/wiki/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
