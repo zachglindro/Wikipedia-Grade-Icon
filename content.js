@@ -7,7 +7,7 @@ function addClassIcon() {
     C: "//upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Symbol_c_class.svg/35px-Symbol_c_class.svg.png",
     Start:
       "//upload.wikimedia.org/wikipedia/en/thumb/a/a4/Symbol_start_class.svg/35px-Symbol_start_class.svg.png",
-    Stub: "//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Symbol_stub_class.svg/35px-Symbol_stub_class.svg.png",
+    Stub: "//upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Symbol_stub_class.svg/35px-Symbol_stub_class.svg.png",
     List: "//upload.wikimedia.org/wikipedia/en/thumb/d/db/Symbol_list_class.svg/35px-Symbol_list_class.svg.png",
   };
 
