@@ -30,7 +30,7 @@ function addClassIcon() {
         img.src = imageUrl;
         img.width = 19;
         img.height = 20;
-        img.alt = `This article is a ${grade}-class article.`;
+        img.alt = `This is a ${grade}-class article.`;
         img.title = img.alt;
 
         const indicatorsDiv = document.querySelector(".mw-indicators");
