@@ -1,6 +1,13 @@
 function addClassIcon() {
-  const articleTitle = window.location.pathname.split("/")[2];
-  const api = `https://en.wikipedia.org/w/api.php?action=query&prop=pageassessments&format=json&titles=${articleTitle}&maxLag=5`;
+  const articleTitle = decodeURIComponent(window.location.pathname.split("/")[2] || "");
+  
+  const apiUrl = new URL('https://en.wikipedia.org/w/api.php');
+  apiUrl.searchParams.append('action', 'query');
+  apiUrl.searchParams.append('prop', 'pageassessments');
+  apiUrl.searchParams.append('format', 'json');
+  apiUrl.searchParams.append('titles', articleTitle);
+  apiUrl.searchParams.append('maxLag', '5');
+  
   const imageUrls = {
     A: "//upload.wikimedia.org/wikipedia/commons/thumb/7/75/Symbol_a_class.svg/35px-Symbol_a_class.svg.png",
     B: "//upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Symbol_b_class.svg/35px-Symbol_b_class.svg.png",
@@ -11,7 +18,7 @@ function addClassIcon() {
     List: "//upload.wikimedia.org/wikipedia/en/thumb/d/db/Symbol_list_class.svg/35px-Symbol_list_class.svg.png",
   };
 
-  fetch(api, {
+  fetch(apiUrl, {
     headers: new Headers({
       "Api-User-Agent": "WikipediaAddClassIcon/1.0",
     }),
