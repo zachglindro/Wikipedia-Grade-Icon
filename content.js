@@ -7,6 +7,7 @@ function addClassIcon() {
   apiUrl.searchParams.append('format', 'json');
   apiUrl.searchParams.append('titles', articleTitle);
   apiUrl.searchParams.append('maxLag', '5');
+  apiUrl.searchParams.append('origin', '*')
   
   const imageUrls = {
     A: "//upload.wikimedia.org/wikipedia/commons/thumb/7/75/Symbol_a_class.svg/35px-Symbol_a_class.svg.png",
@@ -39,10 +40,27 @@ function addClassIcon() {
         img.height = 20;
         img.alt = `This is a ${grade}-class article.`;
         img.title = img.alt;
+        img.style.marginLeft = "5px";
+        img.style.verticalAlign = "middle";
 
-        const indicatorsDiv = document.querySelector(".mw-indicators");
-        if (indicatorsDiv) {
-          indicatorsDiv.insertBefore(img, indicatorsDiv.firstChild);
+        const isMobile = window.location.host.includes("m.wikipedia.org");
+        if (isMobile) {
+          const firstHeading = document.querySelector("#firstHeading");
+          if (firstHeading) {
+            const iconContainer = document.createElement("span");
+
+            iconContainer.style.display = "inline-block";
+            iconContainer.style.verticalAlign = "middle";
+
+            iconContainer.appendChild(img);
+            firstHeading.appendChild(iconContainer);
+          }
+        } else {
+          const indicatorsDiv = document.querySelector(".mw-indicators");
+          
+          if (indicatorsDiv) {
+            indicatorsDiv.insertBefore(img, indicatorsDiv.firstChild);
+          }
         }
       }
     });
