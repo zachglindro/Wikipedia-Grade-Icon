@@ -3,6 +3,10 @@
   "name": "Wikipedia Add Class Icon",
   "version": "1.0",
   "description": "Displays the grade of a Wikipedia article.",
+  "icons": {
+    "48": "assets/Symbol_b_class.svg",
+    "96": "assets/Symbol_b_class.svg"
+  },
   "content_scripts": [
     {
       "matches": ["https://en.wikipedia.org/wiki/*"],
