@@ -30,7 +30,6 @@ function addClassIcon() {
     .then((data) => {
       const pageId = Object.keys(data.query.pages)[0];
       const assessment = data.query.pages[pageId].pageassessments;
-      console.log("Assessment data:", assessment);
       const grade = assessment && Object.values(assessment)[0]?.class;
       const isMobile = window.location.host.includes("m.wikipedia.org");
 
