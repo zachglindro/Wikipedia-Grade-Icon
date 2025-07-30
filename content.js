@@ -69,6 +69,9 @@ function addClassIcon() {
           }
         }
       }
+    })
+    .catch((error) => {
+      console.error("Error fetching assessment data:", error);
     });
 }
 
