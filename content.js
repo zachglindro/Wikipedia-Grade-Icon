@@ -36,6 +36,10 @@ function addClassIcon() {
       const grade = assessment && Object.values(assessment)[0]?.class;
       const isMobile = window.location.host.includes("m.wikipedia.org");
 
+      const talkPageUrl = `${
+        window.location.origin
+      }/wiki/Talk:${encodeURIComponent(articleTitle)}`;
+
       if (
         isMobile ||
         (grade && !["FA", "GA", "FL"].includes(grade) && imageUrls[grade])
@@ -43,7 +47,6 @@ function addClassIcon() {
         const imageUrl = imageUrls[grade];
 
         const img = document.createElement("img");
-
         img.src = imageUrl;
         img.width = 19;
         img.height = 20;
@@ -52,22 +55,23 @@ function addClassIcon() {
         img.style.marginLeft = "5px";
         img.style.verticalAlign = "middle";
 
+        const link = document.createElement("a");
+        link.href = talkPageUrl;
+        link.appendChild(img);
+
         if (isMobile) {
           const firstHeading = document.querySelector("#firstHeading");
           if (firstHeading) {
             const iconContainer = document.createElement("span");
-
             iconContainer.style.display = "inline-block";
             iconContainer.style.verticalAlign = "middle";
-
-            iconContainer.appendChild(img);
+            iconContainer.appendChild(link);
             firstHeading.appendChild(iconContainer);
           }
         } else {
           const indicatorsDiv = document.querySelector(".mw-indicators");
-
           if (indicatorsDiv) {
-            indicatorsDiv.insertBefore(img, indicatorsDiv.firstChild);
+            indicatorsDiv.insertBefore(link, indicatorsDiv.firstChild);
           }
         }
       }
