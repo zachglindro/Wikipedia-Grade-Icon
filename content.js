@@ -47,7 +47,7 @@ function addClassIcon() {
         img.src = imageUrl;
         img.width = 19;
         img.height = 20;
-        img.alt = `This is a ${grade}-class article.`;
+        img.alt = `This is a ${grade}-class article. Click here for more information.`;
         img.title = img.alt;
         img.style.marginLeft = "5px";
         img.style.verticalAlign = "middle";
