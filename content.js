@@ -12,6 +12,9 @@ function addClassIcon() {
   apiUrl.searchParams.append("origin", "*");
 
   const imageUrls = {
+    FA: "//upload.wikimedia.org/wikipedia/commons/c/cf/Cscr-featured.png",
+    GA: "//upload.wikimedia.org/wikipedia/en/9/94/Symbol_support_vote.svg",
+    FL: "//upload.wikimedia.org/wikipedia/commons/c/cf/Cscr-featured.png",
     A: "//upload.wikimedia.org/wikipedia/commons/thumb/7/75/Symbol_a_class.svg/35px-Symbol_a_class.svg.png",
     B: "//upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Symbol_b_class.svg/35px-Symbol_b_class.svg.png",
     C: "//upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Symbol_c_class.svg/35px-Symbol_c_class.svg.png",
