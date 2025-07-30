@@ -1,14 +1,16 @@
 function addClassIcon() {
-  const articleTitle = decodeURIComponent(window.location.pathname.split("/")[2] || "");
-  
-  const apiUrl = new URL('https://en.wikipedia.org/w/api.php');
-  apiUrl.searchParams.append('action', 'query');
-  apiUrl.searchParams.append('prop', 'pageassessments');
-  apiUrl.searchParams.append('format', 'json');
-  apiUrl.searchParams.append('titles', articleTitle);
-  apiUrl.searchParams.append('maxLag', '5');
-  apiUrl.searchParams.append('origin', '*')
-  
+  const articleTitle = decodeURIComponent(
+    window.location.pathname.split("/")[2] || ""
+  );
+
+  const apiUrl = new URL("https://en.wikipedia.org/w/api.php");
+  apiUrl.searchParams.append("action", "query");
+  apiUrl.searchParams.append("prop", "pageassessments");
+  apiUrl.searchParams.append("format", "json");
+  apiUrl.searchParams.append("titles", articleTitle);
+  apiUrl.searchParams.append("maxLag", "5");
+  apiUrl.searchParams.append("origin", "*");
+
   const imageUrls = {
     A: "//upload.wikimedia.org/wikipedia/commons/thumb/7/75/Symbol_a_class.svg/35px-Symbol_a_class.svg.png",
     B: "//upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Symbol_b_class.svg/35px-Symbol_b_class.svg.png",
@@ -28,9 +30,14 @@ function addClassIcon() {
     .then((data) => {
       const pageId = Object.keys(data.query.pages)[0];
       const assessment = data.query.pages[pageId].pageassessments;
+      console.log("Assessment data:", assessment);
       const grade = assessment && Object.values(assessment)[0]?.class;
+      const isMobile = window.location.host.includes("m.wikipedia.org");
 
-      if (grade && !["FA", "GA", "FL"].includes(grade) && imageUrls[grade]) {
+      if (
+        isMobile ||
+        (grade && !["FA", "GA", "FL"].includes(grade) && imageUrls[grade])
+      ) {
         const imageUrl = imageUrls[grade];
 
         const img = document.createElement("img");
@@ -43,7 +50,6 @@ function addClassIcon() {
         img.style.marginLeft = "5px";
         img.style.verticalAlign = "middle";
 
-        const isMobile = window.location.host.includes("m.wikipedia.org");
         if (isMobile) {
           const firstHeading = document.querySelector("#firstHeading");
           if (firstHeading) {
@@ -57,7 +63,7 @@ function addClassIcon() {
           }
         } else {
           const indicatorsDiv = document.querySelector(".mw-indicators");
-          
+
           if (indicatorsDiv) {
             indicatorsDiv.insertBefore(img, indicatorsDiv.firstChild);
           }
