@@ -12,16 +12,15 @@ function addClassIcon() {
   apiUrl.searchParams.append("origin", "*");
 
   const imageUrls = {
-    FA: "//upload.wikimedia.org/wikipedia/commons/c/cf/Cscr-featured.png",
-    GA: "//upload.wikimedia.org/wikipedia/en/9/94/Symbol_support_vote.svg",
-    FL: "//upload.wikimedia.org/wikipedia/commons/c/cf/Cscr-featured.png",
-    A: "//upload.wikimedia.org/wikipedia/commons/thumb/7/75/Symbol_a_class.svg/35px-Symbol_a_class.svg.png",
-    B: "//upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Symbol_b_class.svg/35px-Symbol_b_class.svg.png",
-    C: "//upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Symbol_c_class.svg/35px-Symbol_c_class.svg.png",
-    Start:
-      "//upload.wikimedia.org/wikipedia/en/thumb/a/a4/Symbol_start_class.svg/35px-Symbol_start_class.svg.png",
-    Stub: "//upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Symbol_stub_class.svg/35px-Symbol_stub_class.svg.png",
-    List: "//upload.wikimedia.org/wikipedia/en/thumb/d/db/Symbol_list_class.svg/35px-Symbol_list_class.svg.png",
+    FA: "//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Featured_article_star.svg/3840px-Featured_article_star.svg.png",
+    FL: "//upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Featured_article_star.svg/3840px-Featured_article_star.svg.png",
+    GA: "https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Symbol_support_vote.svg/3840px-Symbol_support_vote.svg.png",
+    A: "//upload.wikimedia.org/wikipedia/commons/thumb/2/25/Symbol_a_class.svg/3840px-Symbol_a_class.svg.png",
+    B: "//upload.wikimedia.org/wikipedia/en/thumb/5/5f/Symbol_b_class.svg/3840px-Symbol_b_class.svg.png",
+    C: "//upload.wikimedia.org/wikipedia/en/thumb/e/e6/Symbol_c_class.svg/3840px-Symbol_c_class.svg.png",
+    Start: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Symbol_start_class.svg/3840px-Symbol_start_class.svg.png",
+    Stub: "/upload.wikimedia.org/wikipedia/en/thumb/f/f5/Symbol_stub_class.svg/3840px-Symbol_stub_class.svg.png",
+    List: "//upload.wikimedia.org/wikipedia/en/thumb/d/db/Symbol_list_class.svg/3840px-Symbol_list_class.svg.png",
   };
 
   fetch(apiUrl, {
