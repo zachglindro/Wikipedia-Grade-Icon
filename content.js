@@ -33,16 +33,12 @@ function addClassIcon() {
       const pageId = Object.keys(data.query.pages)[0];
       const assessment = data.query.pages[pageId].pageassessments;
       const grade = assessment && Object.values(assessment)[0]?.class;
-      const isMobile = window.location.host.includes("m.wikipedia.org");
 
       const talkPageUrl = `${
         window.location.origin
       }/wiki/Talk:${encodeURIComponent(articleTitle)}`;
 
-      if (
-        isMobile ||
-        (grade && !["FA", "GA", "FL"].includes(grade) && imageUrls[grade])
-      ) {
+      if (grade && !["FA", "GA", "FL"].includes(grade) && imageUrls[grade]) {
         const imageUrl = imageUrls[grade];
 
         const img = document.createElement("img");
@@ -58,20 +54,19 @@ function addClassIcon() {
         link.href = talkPageUrl;
         link.appendChild(img);
 
-        if (isMobile) {
-          const firstHeading = document.querySelector("#firstHeading");
-          if (firstHeading) {
-            const iconContainer = document.createElement("span");
-            iconContainer.style.display = "inline-block";
-            iconContainer.style.verticalAlign = "middle";
-            iconContainer.appendChild(link);
-            firstHeading.appendChild(iconContainer);
-          }
-        } else {
-          const indicatorsDiv = document.querySelector(".mw-indicators");
-          if (indicatorsDiv) {
-            indicatorsDiv.insertBefore(link, indicatorsDiv.firstChild);
-          }
+        const indicatorsDiv = document.querySelector(".mw-indicators");
+        if (indicatorsDiv) {
+          indicatorsDiv.insertBefore(link, indicatorsDiv.firstChild);
+          return;
+        }
+
+        const firstHeading = document.querySelector("#firstHeading");
+        if (firstHeading) {
+          const iconContainer = document.createElement("span");
+          iconContainer.style.display = "inline-block";
+          iconContainer.style.verticalAlign = "middle";
+          iconContainer.appendChild(link);
+          firstHeading.appendChild(iconContainer);
         }
       }
     })
